@@ -1,0 +1,99 @@
+/* Copyright (c) 2017 Felix Bolte */
+
+/* general */
+body {
+  width: 680px;
+  height: 100%;
+  margin: auto;
+  padding: 10px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* center heading */
+h2 {
+    text-align: center;
+}
+
+/* center image */
+img {
+    display: block;
+    width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.small {
+    width: 500px;
+}
+
+img.big {
+    width: 660px;
+}
+
+.stats, .stats th, .stats td {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid #aaaaaa;
+    padding: 5px;
+    text-align: right;
+}
+
+.stats th {
+    background-color: #d6d6d6;
+}
+
+#domains {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #aaaaaa;
+    border-collapse: collapse;
+}
+
+#domains tbody, #domains thead, #domains tr {
+    display: block;
+}
+
+#domains tbody {
+    height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#domains th, #domains td {
+    width: 180px;
+    border-collapse: collapse;
+    border: 1px solid #aaaaaa;
+    padding: 5px;
+    text-align: right;
+}
+
+#domains th:last-child {
+    width: 196px;
+}
+
+#domains th {
+    background-color: #d6d6d6;
+}
+
+.author {
+    text-align: center;
+    font-weight: bold;
+    color: #666666;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* content */
+#content {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: small;
+}
+
+#code {
+  font-weight: bold;
+}
