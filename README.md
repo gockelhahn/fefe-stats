@@ -8,7 +8,7 @@ Statistiken über [Fefes Blog](https://blog.fefe.de)
 
 ## Richtigkeit der Daten
 
-Alles ohne Gewähr. Benutzte Scripte sind unter ["tools"](tools)) zu finden.
+Alles ohne Gewähr. Benutzte Scripte sind unter ["tools"](tools) zu finden.
 
 ## Disclaimer
 

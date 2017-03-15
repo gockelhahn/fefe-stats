@@ -12,79 +12,80 @@ body {
 
 /* center heading */
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 /* center image */
 img {
-    display: block;
-    width: 580px;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  width: 580px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img.small {
-    width: 500px;
+  width: 500px;
 }
 
 img.big {
-    width: 660px;
+  width: 660px;
 }
 
 .stats, .stats th, .stats td {
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    border: 1px solid #aaaaaa;
-    padding: 5px;
-    text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border: 1px solid #aaaaaa;
+  padding: 5px;
+  text-align: right;
 }
 
 .stats th {
-    background-color: #d6d6d6;
+  background-color: #d6d6d6;
 }
 
 #domains {
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #aaaaaa;
-    border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #aaaaaa;
+  border-collapse: collapse;
 }
 
 #domains tbody, #domains thead, #domains tr {
-    display: block;
+  display: block;
 }
 
 #domains tbody {
-    height: 280px;
-    overflow-y: auto;
-    overflow-x: hidden;
+  height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #domains th, #domains td {
-    width: 180px;
-    border-collapse: collapse;
-    border: 1px solid #aaaaaa;
-    padding: 5px;
-    text-align: right;
+  width: 180px;
+  border-collapse: collapse;
+  border: 1px solid #aaaaaa;
+  padding: 5px;
+  text-align: right;
 }
 
 #domains th:last-child {
-    width: 196px;
+  width: 196px;
 }
 
 #domains th {
-    background-color: #d6d6d6;
+  background-color: #d6d6d6;
 }
 
 .author {
-    text-align: center;
-    font-weight: bold;
-    color: #666666;
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+  color: #666666;
 }
 
 .italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 /* content */
@@ -95,5 +96,7 @@ img.big {
 }
 
 #code {
+  text-align: center;
+  font-size: medium;
   font-weight: bold;
 }

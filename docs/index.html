@@ -5,22 +5,220 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Felix Bolte">
-    <meta name="date" content="2017-03-14T00:00:00+01:00">
+    <meta name="date" content="2017-03-15T00:00:00+01:00">
     <title>12 Jahre Fefes Blog - eine "Small Data" Analyse</title>
     <link rel="stylesheet" href="css/default.css">
   </head>
   <body>
     <main id="main">
-      <header id="header">
-        <h2>12 Jahre Fefes Blog - eine "Small Data" Analyse</h2>
-        <pre class="author">von Felix Bolte, 14.03.2017</pre>
-      </header>
-      
-      <footer id="footer_site">
-        <br>
-        <hr>
-        <pre id="code">Copyright (c) 2017 Felix Bolte / <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0⤴</a> (<a target="_blank" href="https://github.com/gockelhahn/fefe-stats">https://github.com/gockelhahn/fefe-stats⤴</a>)</pre>
-      </footer>
+      <article id="content">
+        <header id="header">
+          <h2>12 Jahre Fefes Blog - eine "Small Data" Analyse</h2>
+          <pre class="author">von Felix Bolte, 15.03.2017</pre>
+        </header>
+        <p class="italic">
+          Angefangen als Sammelsurium von teilenswerten Links, schnellte die Beliebtheit des Blogs rasant in die Höhe. Zwar weiß niemand genau wer und wenn ja wie viele sich hier rumtummeln, doch wahrscheinlich ist es genau dieser Charme (schlicht, kommentarfrei), den die Leute zu schätzen wissen. Diesen Monat, exakterweise am <a href="https://blog.fefe.de/?mon=200503" target="_blank">31. März 2017⤴</a> wird Fefe nun das Dutzend vollmachen. Aber was bleibt dem Fefe-Leser eigentlich nach der abendlichen Lektüre außer einem Gefühl, von schlechten Nachrichten umzingelt zu sein? Zeit sich einmal anzuschauen, was man anhand der Unmengen von Posts über die Jahre alles herausfinden kann!
+        </p>
+        <a href="img/fefe_wordcloud.png" target="_blank"><img class="small" src="img/fefe_wordcloud.png" alt="Word Cloud"></a>
+        <p>
+          Als Ausgangspunkt dieses Textes stand der wirklich <a href="https://media.ccc.de/v/33c3-7912-spiegelmining_reverse_engineering_von_spiegel-online" target="_blank">sehenswerte Vortrag⤴</a> von <a href="http://www.dkriesel.com" target="_blank">David Kriesel⤴</a> mit dem Titel "SpiegelMining". Mhhh, das sollte doch auch für Fefes Blog möglich sein, oder? Also, was brauchen wir? Erstmal alle Einträge downloaden (<a href="https://github.com/gockelhahn/fefe-stats/blob/master/tools/download_fefe.py" target="_blank">check⤴</a>). So und nun? Fefe liebt und lebt Datensparsamkeit - was können wir denn jetzt überhaupt für Merkmale in diesen kurzen Texthäppchen entdecken? Wir finden ja auf Anhieb nicht einmal einen Veröffentlichungszeitpunkt, jedenfalls nicht im HTML Code. Zum Glück spuckt der HTTP Header "Last-Modified" die für uns sehr wichtige Uhrzeit aus. Übrigens, die Blogpost-ID korreliert mit dem Datum - Näheres dazu <a href="https://www.netaction.de/datenvisualisierung-von-fefes-blogzeiten/" target="_blank">hier⤴</a>.
+        </p>
+        <p>
+          Alle anderen Merkmale, die es z.B. bei SPON gibt (Autor, Ressort, Schlagwörter, Kommentare), fallen bei Fefe leider weg. Wir müssen uns wohl mit dem eigentlichen Text zufriedengeben. Nun ja, nicht ganz, denn der Text enthält zusätzlich Links, Updates, Zitate und eingebettete Medien (ja richtig, das gabs <a href="https://blog.fefe.de/?ts=b4e9dd39" target="_blank">früher⤴</a> mal!). Auf gehts zur <a href="https://github.com/gockelhahn/fefe-stats/blob/master/tools/analyze_fefe.py" target="_blank">Auswertung⤴</a> der Daten!
+        </p>
+        <p>
+          Zuallererst die nackten Zahlen aus dem Zeitraum vom 31.03.2005 bis zum 28.02.2017 (ohne <a href="https://blog.fefe.de/?ts=b4171241&yes" target="_blank">Hidden Track⤴</a>):
+        </p>
+        <table class="stats">
+          <tr>
+            <th></th>
+            <th>Summe</th>
+            <th>pro Tag (ø)</th>
+            <th>pro Post (ø)</th>
+            <th>pro Tag (max)</th>
+            <th>pro Post (max)</th>
+          </tr>
+          <tr>
+            <th>Posts</th>
+            <td>37987</td>
+            <td>8,73</td>
+            <td>-</td>
+            <td>53 <span class="italic">(31.03.2015)</span></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Updates</th>
+            <td>4513</td>
+            <td>1,04</td>
+            <td>0,12</td>
+            <td>29 <span class="italic">(12.09.2009)</span></td>
+            <td>27 <span class="italic">(<a href="https://blog.fefe.de/?ts=b452c21a" target="_blank">12.09.2009⤴</a>)</span></td>
+          </tr>
+          <tr>
+            <th>Zitate</th>
+            <td>13430</td>
+            <td>3,09</td>
+            <td>0,35</td>
+            <td>54 <span class="italic">(31.03.2015)</span></td>
+            <td>25 <span class="italic">(<a href="https://blog.fefe.de/?ts=b05ed620" target="_blank">20.10.2011⤴</a>)</span></td>
+          </tr>
+          <tr>
+            <th>Links</th>
+            <td>49418</td>
+            <td>11,35</td>
+            <td>1,30</td>
+            <td>76 <span class="italic">(01.10.2010)</span></td>
+            <td>47 <span class="italic">(<a href="https://blog.fefe.de/?ts=b2f19c4d" target="_blank">09.06.2010⤴</a>)</span></td>
+          </tr>
+          <tr>
+            <th>Textlängen<br>(in Zeichen)</th>
+            <td>19206831</td>
+            <td>4412,32</td>
+            <td>505,62</td>
+            <td>74526 <span class="italic">(31.03.2015)</span></td>
+            <td>16937 <span class="italic">(<a href="https://blog.fefe.de/?ts=ae1a50a0" target="_blank">02.01.2013⤴</a>)</span></td>
+          </tr>
+        </table>
+        <p>
+          Schauen wir uns nun genauer an, zu welchen Uhrzeiten Fefe gerne postet:
+        </p>
+        <a href="img/fefe_uhrzeit.png" target="_blank"><img src="img/fefe_uhrzeit.png" alt="Postings pro Zeit"></a>
+        <p>
+          Hui, eine schöne sinusartige Kurve - Fefe scheint also einen geregelten Tagesablauf zu haben! Auffällig jedoch ist der Peak um 12:30 Uhr. Mhhh, kurz in die Rohdaten geschaut, und tatsächlich, Anfang 2005, also damals, als der Blog gestartet wurde, haben nämlich alle Blogposts einen Zeitstempel im Sekundenabstand zueinander - bis zum 01.07.2005. Was ist an diesem Tag passiert? Fefe hat seine <a href="https://blog.fefe.de/?ts=bc53a7fa" target="_blank">selbstgehackte⤴</a> Blogsoftware <a href="https://blog.fefe.de/?ts=bc3bf7ae" target="_blank">deployed⤴</a> und das System mit den alten Daten gefüttert. Anscheinend hat er dabei die Zeitstempel der ersten drei Monate "gefaked"! Wenn wir diesen Zeitraum herausrechnen, bekommen wir folgendes Bild:
+        </p>
+        <a href="img/fefe_uhrzeit_fixed.png" target="_blank"><img src="img/fefe_uhrzeit_fixed.png" alt="Postings pro Zeit (repariert)"></a>
+        <p>
+          Den kleinen Einbruch nach 20 Uhr kann ja jeder für sich selbst interpretieren ;). Nun gut, lassen wir Fefes Posting-Aktivität mal beiseite und widmen uns seinen gesetzten Links. Ganze 2409 davon (~ 5%) sind interne Links (blog.fefe.de). Die externen Links setzen sich wie folgt zusammen (alle über 100 Verweise):
+        </p>
+        <table id="domains">
+          <thead>
+            <tr>
+              <th>Domain</th>
+              <th>Anzahl der Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>www.spiegel.de</td><td>4151</td></tr>
+            <tr><td>www.heise.de</td><td>2791</td></tr>
+            <tr><td>www.tagesschau.de</td><td>1266</td></tr>
+            <tr><td>www.youtube.com</td><td>1080</td></tr>
+            <tr><td>www.guardian.co.uk</td><td>927</td></tr>
+            <tr><td>www.twitter.com</td><td>800</td></tr>
+            <tr><td>news.bbc.co.uk</td><td>778</td></tr>
+            <tr><td>de.wikipedia.org</td><td>776</td></tr>
+            <tr><td>www.nytimes.com</td><td>679</td></tr>
+            <tr><td>en.wikipedia.org</td><td>605</td></tr>
+            <tr><td>www.tagesspiegel.de</td><td>551</td></tr>
+            <tr><td>www.zeit.de</td><td>508</td></tr>
+            <tr><td>www.faz.net</td><td>485</td></tr>
+            <tr><td>de.rian.ru</td><td>462</td></tr>
+            <tr><td>www.washingtonpost.com</td><td>395</td></tr>
+            <tr><td>ptrace.fefe.de</td><td>387</td></tr>
+            <tr><td>www.taz.de</td><td>387</td></tr>
+            <tr><td>www.theguardian.com</td><td>376</td></tr>
+            <tr><td>www.sueddeutsche.de</td><td>368</td></tr>
+            <tr><td>www.welt.de</td><td>365</td></tr>
+            <tr><td>news.yahoo.com</td><td>359</td></tr>
+            <tr><td>www.reuters.com</td><td>319</td></tr>
+            <tr><td>www.bbc.co.uk</td><td>303</td></tr>
+            <tr><td>www.netzpolitik.org</td><td>293</td></tr>
+            <tr><td>www.sz.de</td><td>282</td></tr>
+            <tr><td>www.rt.com</td><td>252</td></tr>
+            <tr><td>www.telegraph.co.uk</td><td>252</td></tr>
+            <tr><td>www.bloomberg.com</td><td>226</td></tr>
+            <tr><td>www.golem.de</td><td>223</td></tr>
+            <tr><td>www.theregister.co.uk</td><td>221</td></tr>
+            <tr><td>www.wired.com</td><td>213</td></tr>
+            <tr><td>www.cnn.com</td><td>198</td></tr>
+            <tr><td>www.derstandard.at</td><td>186</td></tr>
+            <tr><td>www.bbc.com</td><td>174</td></tr>
+            <tr><td>www.independent.co.uk</td><td>171</td></tr>
+            <tr><td>www.theinquirer.net</td><td>160</td></tr>
+            <tr><td>www.arstechnica.com</td><td>155</td></tr>
+            <tr><td>www.google.com</td><td>150</td></tr>
+            <tr><td>www.fr-online.de</td><td>148</td></tr>
+            <tr><td>www.focus.de</td><td>144</td></tr>
+            <tr><td>www.rawstory.com</td><td>141</td></tr>
+            <tr><td>www.timesonline.co.uk</td><td>137</td></tr>
+            <tr><td>edition.cnn.com</td><td>133</td></tr>
+            <tr><td>www.n-tv.de</td><td>132</td></tr>
+            <tr><td>www.dailymail.co.uk</td><td>127</td></tr>
+            <tr><td>www.tagesanzeiger.ch</td><td>122</td></tr>
+            <tr><td>www.ftd.de</td><td>121</td></tr>
+            <tr><td>www.haaretz.com</td><td>119</td></tr>
+            <tr><td>www.stern.de</td><td>116</td></tr>
+            <tr><td>www.alternativlos.org</td><td>113</td></tr>
+            <tr><td>www.lawblog.de</td><td>112</td></tr>
+            <tr><td>www.heute.de</td><td>110</td></tr>
+            <tr><td>www.huffingtonpost.com</td><td>107</td></tr>
+            <tr><td>pbs.twimg.com</td><td>106</td></tr>
+            <tr><td>abcnews.go.com</td><td>101</td></tr>
+            <tr><td>www.torrentfreak.com</td><td>100</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Wow, das hätte ich jetzt nicht erwartet. Fefe ist ja ein richtiger SPON Fanboy! Mehr als jeder zwölfte Link geht zum Spiegel, d.h. im Durchschnitt ca. einer pro Tag. Dabei bezeichnet er dieses Medium doch immer als "ehemaliges Nachrichtenmagazin". Schauen wir doch mal, wie sich das über die Zeit verhält:
+        </p>
+        <a href="img/fefe_spon.png" target="_blank"><img src="img/fefe_spon.png" alt="SPON vs. Nachrichtenmagazin"></a>
+        <p>
+          Ok ok, der Trend geht eindeutig nach unten. Zwischen 2010 und 2011 scheint ein gewisser Knackpunkt zu liegen, denn dort benutzt er seinen Kampfbegriff relativ häufig. Schauen wir uns mal andere Nachrichtenseiten über die Zeit an:
+        </p>
+        <a href="img/fefe_news_domains.png" target="_blank"><img src="img/fefe_news_domains.png" alt="News Domains"></a>
+        <p>
+          Wo die Zahlen für Twitter und Tagesschau in den letzten Jahren stiegen, fielen die anderen abrupt auf Null. Wie kommt das? Nun, beim Guardian und der BBC haben sich die Domains geändert. RIA Novosti (de.rian.ru) hingegen ging am Ende in Sputnik News auf. Wenn man also ein akkurates Bild zeichnen möchte, müsste man eigentlich die alten und neuen Domains zusammenzählen.
+        </p>
+        <p>
+          Jetzt die spannende Frage, HTTP oder HTTPS? Let's Encrypt hat ja im letzten Jahr enorm viel Zertifikate <a href="https://letsencrypt.org/stats/" target="_blank">ausgestellt⤴</a>. Und tatsächlich, dieser Trend spiegelt sich auch in Fefes externen Links wider. Wenn das so weiter geht, haben wir dieses Jahr Break-even. Yay!
+        </p>
+        <a href="img/fefe_https.png" target="_blank"><img src="img/fefe_https.png" alt="HTTP vs. HTTPS"></a>
+        <p>
+          Nochmal kurz zu den internen Links - von den 2409 verweisen 2277 direkt auf einzelne Blogposts. Es gibt 5 Paare die sich jeweils gegenseitig referenzieren und es gibt sogar einen Eintrag der sich <a href="https://blog.fefe.de/?ts=b4171241" target="_blank">selbst verlinkt⤴</a>. Übrigens, die längste interne Referenzkette hat eine Tiefe von <a href="https://blog.fefe.de/?ts=ae51b7c6" target="_blank">5 Links⤴</a> und dreht sich um das Thema "Mohn".
+        </p>
+        <p>
+          Sieht man eigentlich im Nachhinein noch, was Fefe so verlinkt? Einige der Links führen ja schon des Öfteren ins digitale Nirvana (<b>TODO</b>: Halbwertzeit des Internets berechnen), aber wir können ja die URLs nach "Dateitypen" durchforsten und sortieren:
+        </p>
+        <table class="stats">
+          <tr>
+            <th>Dateityp</th>
+            <th>Summe</th>
+          </tr>
+          <tr>
+            <td style="text-align:left"><b>Webseiten</b> (html, php, do, stm, htm, aspx, asp, shtml, cfm, ece, story, jsp, jhtml, cgi, php3)</td>
+            <td>21195</td>
+          </tr>
+          <tr>
+            <td style="text-align:left"><b>Bilder</b> (jpg, png, jpeg, gif)</td>
+            <td>1157</td>
+          </tr>
+          <tr>
+            <td style="text-align:left"><b>Dokumente</b> (pdf, txt, xml)</td>
+            <td>705</td>
+          </tr>
+          <tr>
+            <td style="text-align:left"><b>Media</b> (mp3, mp4)</td>
+            <td>34</td>
+          </tr>
+        </table>
+        <p>
+          Was kann man noch aufregendes feststellen wenn man sich nur den Text anschaut? Z.B. gibt es ganze 1177 Posts, die ohne Links, Medien und Zitaten daherkommen. Vielleicht sind das Fefes eigene Denkanstöße, vielleicht hat er aber auch nur vergessen Links zu setzen - wer weiß!?
+        </p>
+        <p>
+          Wie man schon im ersten Bild ganz oben sehen konnte, um welche Themen sich Fefes Blog dreht, hat <a href="http://www.security-informatics.de/blog/?p=956" target="_blank">hier⤴</a> mal jemand geschaut, wie verwandt die Themen untereinander sind bzw. "worüber Fefe lacht".
+        </p>
+        <p>
+            Neue Rechtschreibung! Alte Rechtschreibung?
+        </p>
+        <a href="img/fefe_rechtschreibung.png" target="_blank"><img src="img/fefe_rechtschreibung.png" alt="Alte vs. Neue Rechtschreibung"></a>
+        <p>
+          Zum Schluss eine Liste der Floskeln bzw. Memes nach Häufigkeit (da fehlen bestimmt noch ein Paar!):
+        </p>
+        <a href="img/fefe_memes.png" target="_blank"><img class="big" src="img/fefe_memes.png" alt="SPON vs. Nachrichtenmagazin"></a>
+        <footer id="footer_site">
+          <br>
+          <hr>
+          <pre id="code">Copyright (c) 2017 Felix Bolte / <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0⤴</a> (<a target="_blank" href="https://github.com/gockelhahn/fefe-stats">https://github.com/gockelhahn/fefe-stats⤴</a>)</pre>
+        </footer>
+      </article>
     </main>
   </body>
 </html>
